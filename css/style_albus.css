@@ -1,0 +1,273 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin: 0; padding: 0; letter-spacing: -1px;}  /* 전체선택자. html 모든 태그 여백 제거 */
+li{list-style: none;} /* 리스트 점표시 제거 */
+a{text-decoration: none; color: inherit;}  /* a태그 밑줄 제거; 부모 요소의 글자 색상 상속 */
+address, em{font-style: normal;}
+hr{border: none;}
+table{border-collapse: collapse;} /* 테이블 표 사이 여백 없애줌 */
+textarea{resize: none;}
+/*.clear::after{content: ""; display: block; clear: both;}*/
+
+body{background: #fff;}
+
+/* *****헤더 영역***** */
+
+#header{display: flex; justify-content: space-between; flex-wrap: wrap; position: fixed; top:0; left:0; width: 100%; padding: 60px 0 20px; background: rgba(255,255,255,.5); z-index: 100; transition: 0.3s;}
+#header h1{margin-left: 6%;}
+#header h1 a{}
+#header h1 a img{display: block; transition: 0.3s;}
+#header .btn{position: absolute; top: 72px; right: 6%; width: 40px; height: 24px; cursor: pointer; z-index: 100;}
+#header .btn a{position: relative;}
+#header .btn a span{position: absolute; left:0; top:0; width: 40px; height: 2px; background: #000; transition: 0.2s;}
+#header .btn a span:nth-of-type(1){top: 0;}
+#header .btn a span:nth-of-type(2){top: 12px;}
+#header .btn a span:nth-of-type(3){top: 24px;}
+
+@media all and (max-width: 760px){
+	#header{padding-top: 40px;}
+	#header h1 a img{width: 100%;}
+	#header .btn{top: 40px; transform: scale(50%, 60%);}
+}
+
+@media all and (max-width: 570px){
+	#header h1{margin-left: 5%;}
+	#header .btn{right: 5%;}
+}
+
+/* *****버튼 슬라이드메뉴***** */
+
+#header .gnb{position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background: rgba(255,255,255,.95); overflow: hidden; transition: 0.6s;}
+#header .gnb .wrap{position: relative;}
+#header .gnb .menu{display: table; width: 100%; height: 100%; text-align: center;}
+#header .gnb .inner{display: table-cell; width: 100%; height: 100%; vertical-align: middle;}
+#header .gnb .inner>li{text-align: center; padding: 20px 0; color: #171717; font-size: 1.1em;}
+#header .gnb .inner>li>a{}
+#header .gnb .inner>li>a>img{}
+
+#header .gnb .inner>li:hover{text-decoration: underline;}
+
+/* *****메인 홈 컨텐츠 영역***** */
+
+#contents{padding-top: 120px; box-sizing: border-box;}
+
+#contents #home_main{padding-bottom: 70px; box-sizing: border-box;}
+#contents #home_main .home_wrap{padding: 0 5%;}
+#contents #home_main .home_wrap .img_wrap{margin-bottom: 35px;}
+#contents #home_main .home_wrap .img_wrap img{display: block; max-width: 100%; min-width: 100%; margin: 0 auto;}
+#contents #home_main .home_wrap .text_wrap{width: 760px; margin-bottom: 15px;}
+#contents #home_main .home_wrap .text_wrap>ul{display: flex; flex-wrap: wrap;}
+#contents #home_main .home_wrap .text_wrap>ul>li{margin-left: 1%;}
+#contents #home_main .home_wrap .text_wrap>ul>li:nth-of-type(1){max-width: 50%; flex: 0 0 49%;}
+#contents #home_main .home_wrap .text_wrap>ul>li:nth-of-type(n+2){max-width: 25%; flex: 0 0 24%;}
+#contents #home_main .home_wrap .text_wrap>ul>li a{}
+#contents #home_main .home_wrap .text_wrap>ul>li a h2{font-size: 0.9em; margin-bottom: 15px;}
+#contents #home_main .home_wrap .text_wrap>ul>li a p{font-size: 0.8em;}
+#contents #home_main .home_wrap .text_wrap>ul>li a .bar{display: block; width: 15px; height: 1px; margin-bottom: 15px; background: #ccc;}
+
+@media all and (max-width: 1200px){
+	#contents #home_main .home_wrap .text_wrap{width: 100%;}
+}
+
+@media all and (max-width: 760px){
+	#contents{padding-top: 90px;}
+	#contents #home_main{padding-bottom: 50px;}
+	#contents #home_main .home_wrap .text_wrap{display: none;}
+}
+
+@media all and (max-width: 570px){
+	#contents #home_main{padding-bottom: 40px;}
+}
+
+/* *****About Artist***** */
+
+#contents #exhibition{}
+#contents #exhibition .artist{padding: 100px 0; margin: 0 5%; background: url("http://albusgallery.com/data/files/6ad1ae20d162e52e52d40c9903ac82d0.jpg") center fixed no-repeat; background-size: cover; overflow: hidden;}
+#contents #exhibition .artist .artist_wrap{display: flex; justify-content: flex-end;}
+#contents #exhibition .artist .artist_wrap .about_artist{width: 57.5%; padding: 120px 7%; box-sizing: border-box; background: rgba(255,255,255,.9); margin-right: -100%; animation: a_slide 1s forwards; animation-delay: 2s;}
+#contents #exhibition .artist .artist_wrap .about_artist h2{font-size: 1em;}
+#contents #exhibition .artist .artist_wrap .about_artist i{display: block; padding: 90px 0 10px; font-size: 0.9em;}
+#contents #exhibition .artist .artist_wrap .about_artist b{display: block; padding-bottom: 50px; font-weight: 100; font-size: 2em;}
+#contents #exhibition .artist .artist_wrap .about_artist p{line-height: 2; font-size: 0.8em; letter-spacing: 0;}
+
+@keyframes a_slide{
+	0%{opacity: 0; margin-right: -100%;}
+	100%{opacity: 1; margin-right: 0;}
+}
+
+@media all and (max-width: 960px){
+	#contents #exhibition .artist{padding: 0;}
+	#contents #exhibition .artist .artist_wrap .about_artist{width: 100%; transition: 0.1s;}
+}
+
+@media all and (max-width: 760px){
+	#contents #exhibition .artist .artist_wrap .about_artist{padding: 30px 8%;}
+	#contents #exhibition .artist .artist_wrap .about_artist i{padding: 30px 0 10px;}
+}
+
+@media all and (max-width: 570px){
+	#contents #exhibition .artist .artist_wrap .about_artist{padding: 20px 5%;}
+}
+
+/* *****Biography***** */
+
+#contents #exhibition .biography{padding: 100px 0; box-sizing: border-box;}
+#contents #exhibition .biography .bio_wrap{padding: 150px 0; box-sizing: border-box; background: url("http://albusgallery.com/data/files/97b4702e9eb90e49931780fa44556eb7.jpg") center center no-repeat; background-size: cover;}
+#contents #exhibition .biography .bio_wrap .bio_text_wrap{display: flex; justify-content: space-around; max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 0 10px;}
+#contents #exhibition .biography .bio_wrap .bio_text_wrap h2{width: 16%; padding: 5px 0 0 20px; writing-mode: vertical-lr; font-size: 1em;}
+#contents #exhibition .biography .bio_wrap .bio_text_wrap .bio_text01{width: 40%; margin: 0 10px; padding: 0 20px; line-height: 2; text-indent: -3em; font-size: 0.8em; box-sizing: border-box; border-right: 1px solid #aaa;}
+#contents #exhibition .biography .bio_wrap .bio_text_wrap .bio_text02{width: 40%; padding: 0 20px; line-height: 2; font-size: 0.8em;}
+#contents #exhibition .biography .bio_wrap .bio_text_wrap .bio_text_m{display: none;}
+
+@media all and (max-width: 960px){
+	#contents #exhibition .biography .bio_wrap .bio_text_wrap{padding: 0 10%;}
+	#contents #exhibition .biography .bio_wrap .bio_text_wrap h2{display: none;}
+	#contents #exhibition .biography .bio_wrap .bio_text_wrap .bio_text01{width: 50%;}
+	#contents #exhibition .biography .bio_wrap .bio_text_wrap .bio_text02{width: 50%;}
+}
+
+@media all and (max-width: 760px){
+	#contents #exhibition .biography .bio_wrap .bio_text_wrap{display: block;}
+	#contents #exhibition .biography .bio_wrap .bio_text_wrap .bio_text01{display: none;}
+	#contents #exhibition .biography .bio_wrap .bio_text_wrap .bio_text02{display: none;}
+	#contents #exhibition .biography .bio_wrap .bio_text_wrap .bio_text_m{display: block; line-height: 2; text-indent: -3em; font-size: 0.8em;}
+}
+
+/* *****Exhibition Collection***** */
+
+#contents #exhibition .collection{padding-bottom: 100px;}
+#contents #exhibition .collection .collect_wrap{display: flex; justify-content: space-between; margin: 0 5%;}
+#contents #exhibition .collection .collect_wrap .collect_img{width: 35%; padding: 0 50px 0 0; box-sizing: border-box;}
+#contents #exhibition .collection .collect_wrap .collect_img img{width: 100%; box-shadow: 0 2px 5px 3px #bbb;}
+#contents #exhibition .collection .collect_wrap .collect_txt{width: 65%; align-self: flex-end; box-sizing: border-box;}
+#contents #exhibition .collection .collect_wrap .collect_txt .txt_top{display: flex; justify-content: space-between;}
+#contents #exhibition .collection .collect_wrap .collect_txt .txt_top h2{font-size: 1em;}
+#contents #exhibition .collection .collect_wrap .collect_txt .txt_top b{}
+#contents #exhibition .collection .collect_wrap .collect_txt .txt_bottom{padding: 65px 0 90px;}
+#contents #exhibition .collection .collect_wrap .collect_txt .txt_bottom i{display: block; padding-bottom: 20px;}
+#contents #exhibition .collection .collect_wrap .collect_txt .txt_bottom strong{display: block; font-weight: 100; font-size: 2em;}
+
+@media all and (max-width: 960px){
+	#contents #exhibition .collection .collect_wrap{margin: 0 2%;}
+	#contents #exhibition .collection .collect_wrap .collect_img{padding: 0 50px 0 0;}
+}
+
+@media all and (max-width: 760px){
+	#contents #exhibition .collection{padding-bottom: 0px;}
+	#contents #exhibition .collection .collect_wrap .collect_img{display: none;}
+	#contents #exhibition .collection .collect_wrap .collect_txt{width: 100%;}
+	#contents #exhibition .collection .collect_wrap .collect_txt .txt_top b{display: none;}
+	#contents #exhibition .collection .collect_wrap .collect_txt .txt_bottom strong{width: 100%;}
+}
+
+/* *****3단 슬라이드박스***** */
+
+#contents #news{padding: 90px 0; box-sizing: border-box;}
+#contents #news .news_wrap{width: 100%; padding: 0 15px; box-sizing: border-box;}
+#contents #news .news_wrap .slide_box{display: flex; height: 420px; line-height: 420px; text-align: center; box-sizing: border-box;}
+#contents #news .news_wrap .slide_box .left{width: 20%; height: 100%; background: url("../img/past.jpg") center center no-repeat; background-size: cover; transition: 0.5s;}
+#contents #news .news_wrap .slide_box .left>.inner{width: 100%; height: 100%; background: #f5f5f5; opacity: 1; transition: 0.5s;}
+#contents #news .news_wrap .slide_box .left>.inner>a{opacity: 1;}
+#contents #news .news_wrap .slide_box .left>.inner>a h2{font-size: 1em;}
+#contents #news .news_wrap .slide_box .center{width: 60%; height: 100%; background: url("../img/news.jpg") center center no-repeat; background-size: cover; transition: 0.5s;}
+#contents #news .news_wrap .slide_box .center>.inner{width: 100%; height: 100%; background: #fff; opacity: 0; transition: 0.5s;}
+#contents #news .news_wrap .slide_box .center>.inner>a{opacity: 0;}
+#contents #news .news_wrap .slide_box .center>.inner>a h2{font-size: 1em;}
+#contents #news .news_wrap .slide_box .right{width: 20%; height: 100%; background: url("../img/instagram.jpg") center center no-repeat; background-size: cover; transition: 0.5s;}
+#contents #news .news_wrap .slide_box .right>.inner{width: 100%; height: 100%; background: #f5f5f5; opacity: 1; transition: 0.5s;}
+#contents #news .news_wrap .slide_box .right>.inner>a{opacity: 1;}
+#contents #news .news_wrap .slide_box .right>.inner>a h2{font-size: 1em;}
+
+@media all and (max-width: 760px){
+	#contents #news{padding: 0;}
+	#contents #news .news_wrap .slide_box{display: block; height: auto;}
+	#contents #news .news_wrap .slide_box .slide{margin-bottom: 10px; height: 150px; line-height: 150px;}
+	#contents #news .news_wrap .slide_box .left{width: 100%;}
+	#contents #news .news_wrap .slide_box .left>.inner{opacity: 0.6;}
+	#contents #news .news_wrap .slide_box .center{width: 100%;}
+	#contents #news .news_wrap .slide_box .center>.inner{opacity: 0.7;}
+	#contents #news .news_wrap .slide_box .right{width: 100%;}
+	#contents #news .news_wrap .slide_box .right>.inner{opacity: 0.7;}
+}
+
+/* *****Albus Information***** */
+
+#contents #information{padding: 90px 0;}
+#contents #information .info_wrap{width: 1200px; margin: 0 auto; padding: 0 15px; box-sizing: border-box;}
+#contents #information .info_wrap h2{padding: 10px 0 30px; font-size: 1.3em;}
+#contents #information .info_wrap .info_list{width: 100%;}
+#contents #information .info_wrap .info_list>ul{display: flex; flex-wrap: wrap; justify-content: space-between; font-size: 0.8em;}
+#contents #information .info_wrap .info_list>ul>li{width: 27%; box-sizing: border-box;}
+#contents #information .info_wrap .info_list>ul>li .time{}
+#contents #information .info_wrap .info_list>ul>li .fee{margin-top: 70px;}
+#contents #information .info_wrap .info_list>ul>li b{display: block; font-size: 1.2em;}
+#contents #information .info_wrap .info_list>ul>li p{display: block; margin-top: 10px;}
+#contents #information .info_wrap .info_list>ul>li>p span{font-weight: bold;}
+#contents #information .info_wrap .info_list>ul>li a{display: block; margin: 20px 0; color: #ccc;}
+#contents #information .info_wrap .info_list>ul>li img{display: block; width: 100%;}
+
+@media all and (max-width: 1200px){
+	#contents #information .info_wrap{width: 100%;}
+}
+
+@media all and (max-width: 760px){
+	#contents #information{padding: 50px 0 0;}
+	#contents #information .info_wrap{width: 550px; max-width: 100%;}
+	#contents #information .info_wrap .info_list>ul>li{width: 100%;}
+	#contents #information .info_wrap .info_list>ul>li .fee{margin-bottom: 70px;}
+	#contents #information .info_wrap .info_list>ul>li img{display: block; width: 100%; height: 60%;}
+}
+
+@media all and (max-width: 580px){
+	#contents #information .info_wrap .info_list>ul>li:first-of-type{display: flex; justify-content: space-between;}
+	#contents #information .info_wrap .info_list>ul>li:nth-of-type(n+2){width: 100%;}
+	#contents #information .info_wrap .info_list>ul>li .time{width: 30%;}
+	#contents #information .info_wrap .info_list>ul>li .fee{width: 60%; margin-top: 0;}
+}
+	
+	
+/* *****푸터 영역***** */
+
+#footer{}
+#footer .fnb{background: #f5f5f5;}
+#footer .fnb .f_menu{display: flex; justify-content: center; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; background: #fff;}
+#footer .fnb .f_menu>li{padding: 10px 0;}
+#footer .fnb .f_menu>li::after{content: '│'; color: #ccc; padding: 0 15px;}
+#footer .fnb .f_menu>li:last-of-type::after{content: '';}
+#footer .fnb .f_menu>li a{}
+#footer .fnb .f_inner{display: flex; flex-wrap: wrap; box-sizing: border-box; font-size: 0.8em; width: 1200px; margin: 0 auto; padding: 0 15px 50px;}
+#footer .fnb .f_inner .f_logo{width: 100%; padding: 50px 0 20px;}
+#footer .fnb .f_inner .f_logo img{}
+#footer .fnb .f_inner .addr{width: 24%; height: 135px; box-sizing: border-box;}
+#footer .fnb .f_inner .addr>p{display: block; height: 60px; letter-spacing: 0;}
+#footer .fnb .f_inner .addr>span{display: block; height: 25px; letter-spacing: 0;}
+#footer .fnb .f_inner .newsletter{width: 50%; height: 135px; padding: 0 25px; box-sizing: border-box;}
+#footer .fnb .f_inner .newsletter .n_text{padding-bottom: 20px;}
+#footer .fnb .f_inner .newsletter .n_text p{display: block; padding-bottom: 5px;}
+#footer .fnb .f_inner .newsletter .n_text span{display: block; font-size: 0.9em;}
+#footer .fnb .f_inner .newsletter .n_text span a{display: inline-block; font-size: 1.2em;}
+#footer .fnb .f_inner .newsletter .n_form{}
+#footer .fnb .f_inner .newsletter .n_form form{display: flex;}
+#footer .fnb .f_inner .newsletter .n_form form input{width: 120px; height: 35px; background: #fff; box-sizing: border-box; border: 1px solid #ccc; padding: 0 10px;}
+#footer .fnb .f_inner .newsletter .n_form form input:nth-of-type(2){width: 350px; margin-left: 3px;}
+#footer .fnb .f_inner .newsletter .n_form form button{width: 70px; height: 35px; background: #fff; box-sizing: border-box; border: 1px solid #ccc; border-left: none; cursor: pointer;}
+#footer .fnb .f_inner .newsletter .n_form form button img{}
+#footer .fnb .f_inner .sns{position: relative; width: 24%; height: 135px; box-sizing: border-box;}
+#footer .fnb .f_inner .sns .sns_wrap{position: absolute; right: 0; bottom: 0;}
+#footer .fnb .f_inner .sns .sns_wrap a{}
+#footer .fnb .f_inner .sns .sns_wrap a img{position: absolute; right: 0; bottom: 25px;}
+#footer .fnb .f_inner .sns .sns_wrap p{display: block; color: #ccc;}
+
+@media all and (max-width: 1200px){
+	#footer .fnb .f_inner{width: 100%;}
+}
+
+@media all and (max-width: 760px){
+	#footer .fnb .f_menu{display: none;}
+	#footer .fnb .f_inner{width: 550px; max-width: 100%;}
+	#footer .fnb .f_inner .addr{width: 100%;}
+	#footer .fnb .f_inner .newsletter{width: 100%; padding: 0;}
+	#footer .fnb .f_inner .sns{width: 100%; height: 80px;}
+}
+
